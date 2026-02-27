@@ -12,11 +12,20 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace SpineViewer.ViewModels.Exporters
 {
-    public class FrameSequenceExporterViewModel(MainWindowViewModel vmMain) : VideoExporterViewModel(vmMain)
+    public class FrameSequenceExporterViewModel : VideoExporterViewModel
     {
+        public FrameSequenceExporterViewModel(MainWindowViewModel vmMain) : base(vmMain)
+        {
+            // Frame sequence defaults: transparent background + auto resolution enabled.
+            _backgroundColor = Color.FromArgb(0, 0, 0, 0);
+            _autoResolution = true;
+            _maxResolution = 512;
+        }
+
         public int PngQuality { get => _pngQuality; set => SetProperty(ref _pngQuality, Math.Clamp(value, 0, 100)); }
         protected int _pngQuality = 85;
 

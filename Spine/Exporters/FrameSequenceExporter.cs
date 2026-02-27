@@ -25,7 +25,7 @@ namespace Spine.Exporters
         /// 仅在系统可用 pngquant 时生效, 否则会回退到普通 PNG 导出
         /// </summary>
         public int PngQuality { get => _pngQuality; set => _pngQuality = Math.Clamp(value, 0, 100); }
-        protected int _pngQuality = 85;
+        protected int _pngQuality = 90;
 
         /// <summary>
         /// pngquant 可执行文件路径。
